@@ -1,0 +1,71 @@
+@import "../base";
+
+.Button {
+    background: var(--light-primary);
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    white-space: nowrap;
+    color: var(--dark-primary);
+    font-family: inherit;
+    transition: 0.2s ease-in-out, box-shadow 0.35s ease-in-out;
+    border-radius: 8px;
+    padding: 12px 36px;
+
+    &:disabled {
+        cursor: not-allowed;
+    }
+
+    &-normal:hover {
+        background: var(--light-primary-darker);
+    }
+
+    &-primary {
+        width: fit-content;
+        min-width: 150px;
+        background: var(--dark-primary);
+        color: white;
+
+        &:hover {
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+        }
+    }
+
+    &-subtle {
+        opacity: 0.4;
+        &:hover:not(:disabled) {
+            opacity: 0.55;
+        }
+    }
+
+    &-size-compact {
+        font-size: 0.9rem;
+        padding: 4px 12px;
+        width: fit-content;
+        min-width: auto;
+    }
+
+    &-block {
+        width: 100%;
+    }
+}
+
+.LinkButton {
+    background: transparent;
+    padding: 0;
+    margin: 0;
+    display: inline;
+    color: #2689e4;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    font-size: inherit;
+    border-bottom: 1px dashed #2689e4;
+    font-family: inherit;
+    transition: 0.1s linear;
+
+    svg {
+        vertical-align: bottom;
+        font-size: 1.2em;
+    }
+}

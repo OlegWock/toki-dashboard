@@ -1,0 +1,20 @@
+.App {
+    background: #FFFFFF;
+    box-shadow: 0px 2px 5px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 16px;
+    padding: 40px;
+    min-width: 60vw;
+    min-height: 70vh;
+    max-width: 70vw;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.menu {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    display: flex;
+    gap: 8px;
+}

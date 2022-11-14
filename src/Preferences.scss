@@ -1,0 +1,29 @@
+.Preferences {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+
+    .main-preferences {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 36px;
+
+        &>div {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .theme-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+    }
+
+    label {
+        font-weight: 400;
+        font-size: 1.2rem;
+        margin-bottom: 4px;
+    }
+}

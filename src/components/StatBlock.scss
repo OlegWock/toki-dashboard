@@ -1,0 +1,32 @@
+@import "../base.scss";
+
+.StatBlock {
+    padding: 12px 16px;
+    background: var(--light-primary);
+    color: var(--mid-primary);
+    border-radius: 8px;
+
+    .badge {
+        margin-left: 8px;
+        display: inline-flex;
+        background: var(--mid-primary-muted);
+        color: var(--dark-primary);
+        border-radius: 100px;
+        justify-content: center;
+        align-items: center;
+        padding: 2px 6px;
+        
+    }
+
+    .project-title {
+        font-weight: 700;
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        word-wrap: break-word;
+        max-width: 40ch;
+
+    }
+}

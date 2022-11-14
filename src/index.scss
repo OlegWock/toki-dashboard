@@ -1,0 +1,85 @@
+@import "./base.scss";
+
+@font-face {
+    font-family: 'Zerno';
+    src: url('/Zerno-ExtraLight.woff2') format('WOFF2'),
+        url('/Zerno-ExtraLight.woff') format('WOFF');
+    font-weight: 200;
+    font-style: normal;
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+:root {
+    --dark-primary: hsl(177, 100%, 14%);
+    --dark-primary-muted: hsla(177, 100%, 14%, 0.4);
+    --mid-primary: hsl(113, 24%, 49%);
+    --mid-primary-muted: hsla(113, 24%, 49%, 0.4);
+    --light-primary: hsl(95, 69%, 91%);
+    --light-primary-darker: hsl(95, 69%, 81%);
+    --red: hsl(354, 71%, 30%);
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    margin: 0;
+    font-family: 'Work Sans', sans-serif;
+    color: var(--dark-primary);
+    background: linear-gradient(292.86deg, var(--dark-primary) -5.43%, var(--mid-primary) 112.88%);
+}
+
+html,
+body,
+#root {
+    height: 100%;
+    width: 100%;
+}
+
+#root {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+a,
+a:hover,
+a:focus,
+a:visited {
+    color: inherit;
+    font-family: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Zerno';
+    margin-top: 0;
+
+    &.without-margin {
+        margin-bottom: 0;
+    }
+}
+
+h1 {
+    font-size: 3.2rem;
+}
+
+h2 {
+    font-size: 2.75rem;
+}
+
+h3 {
+    font-size: 2.25rem;
+    margin-bottom: 0.7rem;
+}

@@ -1,0 +1,23 @@
+@import "../base.scss";
+
+.Input {
+    border: 3px solid transparent;
+    background: var(--light-primary);
+    font-size: 1.5rem;
+    font-family: inherit;
+    border-radius: 12px;
+    padding: 12px 24px;
+    color: var(--dark-primary);
+    width: 100%;
+    box-sizing: border-box;
+    transition: ease-in-out 0.2s;
+
+    &:focus {
+        outline: none;
+        border-color: var(--mid-primary);
+    }
+
+    &::placeholder {
+        color: var(--dark-primary-muted);
+    }
+}
