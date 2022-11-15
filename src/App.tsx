@@ -17,6 +17,13 @@ const App = () => {
     useTheme();
 
     return (<>
+        <div className="App">
+            {!loggedIn && <Login />}
+            {loggedIn && <>
+                {screen === 'main' && <Dashboard apiKey={apiKey} />}
+                {screen === 'preferences' && <Preferences onLogOut={() => setScreen('main')} />}
+            </>}
+        </div>
         <div className="menu">
             {loggedIn && <>
                 {screen === 'main' && <Button size='compact' type='subtle' onClick={() => setScreen('preferences')}>Preferences</Button>}
@@ -26,18 +33,11 @@ const App = () => {
                 trigger='click'
                 additionalData={null}
                 component={HelpPopover}
-                placement='bottom-end'
+                placement='top'
                 className='HelpPopover'
             >
                 <Button size="compact" type="subtle">Help</Button>
             </Popover>
-        </div>
-        <div className="App">
-            {!loggedIn && <Login />}
-            {loggedIn && <>
-                {screen === 'main' && <Dashboard apiKey={apiKey} />}
-                {screen === 'preferences' && <Preferences onLogOut={() => setScreen('main')} />}
-            </>}
         </div>
     </>);
 }

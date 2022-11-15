@@ -1,5 +1,5 @@
 import { TogglStat } from '@utils/stats';
-import { StatBlock } from './StatBlock';
+import { StatBlock, StatBlockEmpty } from './StatBlock';
 import './StatsSection.scss';
 
 interface StatsSectionProps {
@@ -13,6 +13,7 @@ export const StatsSection = ({ title, stats, roundDuration = false }: StatsSecti
         <h3>{title}</h3>
         <div className="stat-block">
             {stats.map(s => <StatBlock roundDuration={roundDuration} stat={s} key={s.project.id.toString()} />)}
+            {stats.length === 0 && <StatBlockEmpty />}
         </div>
     </div>)
 }

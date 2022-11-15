@@ -5,16 +5,14 @@
     padding: 40px;
     min-width: 60vw;
     min-height: 70vh;
-    max-width: 70vw;
+    max-width: 95vw;
     display: flex;
     flex-direction: column;
     position: relative;
+    flex-grow: 1;
 }
 
 .menu {
-    position: absolute;
-    top: 40px;
-    right: 40px;
     display: flex;
     gap: 8px;
 }

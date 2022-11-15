@@ -6,6 +6,10 @@
     color: var(--mid-primary);
     border-radius: 8px;
 
+    &.empty {
+
+    }
+
     .badge {
         margin-left: 8px;
         display: inline-flex;

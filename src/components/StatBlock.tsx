@@ -3,6 +3,7 @@ import { TogglStat } from '@utils/stats';
 import classNames from 'classnames';
 import { Duration } from 'luxon';
 import './StatBlock.scss';
+import { Tooltip } from './Tooltip';
 
 interface StatBlockProps {
     stat: TogglStat,
@@ -22,7 +23,22 @@ export const StatBlock = ({ stat, roundDuration }: StatBlockProps) => {
         <div className="project-title">{stat.project.name}</div>
         <div className="project-duration">
             {humanDuration(stat.totalInPeriod, roundDuration)}
-            {shouldDisplayBadge && <div className='badge'>+{shortDuration(Duration.fromMillis(comparedToPrevPeriod))}</div>}
+            {shouldDisplayBadge && <Tooltip label='Compared to previous period'>
+                <div className='badge'>+{shortDuration(Duration.fromMillis(comparedToPrevPeriod))}</div>
+            </Tooltip>}
         </div>
     </div>)
-}
+};
+
+export const StatBlockEmpty = () => {
+    return (<div className={classNames({
+        'StatBlock': true,
+        'empty': true
+    })}>
+        <div className="project-title">Nothing here :(</div>
+        <div className="project-duration">
+            Maybe you forgot to make project public?<br />
+            Or simply didn't track anything?
+        </div>
+    </div>)
+};

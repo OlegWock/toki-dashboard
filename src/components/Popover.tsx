@@ -15,7 +15,8 @@ import {
     FloatingPortal,
     useHover,
     safePolygon,
-    Side
+    Side,
+    size
 } from "@floating-ui/react-dom-interactions";
 import { mergeRefs } from "react-merge-refs";
 import { motion, AnimatePresence } from "framer-motion"
@@ -40,8 +41,8 @@ export type PopoverRenderProps<D extends any = undefined> = {
     data: D,
 }
 
-export const Popover = <D extends any = undefined>({ 
-    children, component: ContentComponent, placement = 'top', additionalData = undefined, 
+export const Popover = <D extends any = undefined>({
+    children, component: ContentComponent, placement = 'top', additionalData = undefined,
     className, style = {}, onStateChange, trigger = 'click', initialFocus = 0
 }: PopoverProps<D>) => {
     const [open, setOpen] = useState(false);
@@ -54,10 +55,20 @@ export const Popover = <D extends any = undefined>({
         },
         middleware: [
             offset(5),
+            size({
+                apply({ availableWidth, availableHeight, elements }) {
+                    console.log('Size middleware call', {availableHeight, availableWidth})
+                    Object.assign(elements.floating.style, {
+                        maxHeight: `${availableHeight}px`,
+                        maxWidth: `${Math.min(Math.max(availableWidth, 0), 600)}px`,
+                    });
+                },
+                padding: 5
+            }),
             flip(),
             shift({
                 padding: 5
-            })
+            }),
         ],
         placement,
         whileElementsMounted: autoUpdate
@@ -92,10 +103,10 @@ export const Popover = <D extends any = undefined>({
 
     const side = computedPlacement.split('-')[0] as Side;
     const initialXY = {
-        'top': {x: 0, y: OFFSET},
-        'bottom': {x: 0, y: -OFFSET},
-        'left': {x: OFFSET, y: 0},
-        'right': {x: -OFFSET, y: 0},
+        'top': { x: 0, y: OFFSET },
+        'bottom': { x: 0, y: -OFFSET },
+        'left': { x: OFFSET, y: 0 },
+        'right': { x: -OFFSET, y: 0 },
     }[side];
 
     return (
@@ -119,7 +130,7 @@ export const Popover = <D extends any = undefined>({
                                 initial={{ opacity: 0, ...initialXY }}
                                 animate={{ opacity: 1, x: 0, y: 0 }}
                                 exit={{ opacity: 0, ...initialXY }}
-                                transition={{duration: 0.2}}
+                                transition={{ duration: 0.2 }}
                                 {...getFloatingProps()}
                             >
                                 <ContentComponent

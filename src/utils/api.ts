@@ -96,7 +96,7 @@ export class TogglApi {
     }
 
     static async makeRequest(key: string, method: 'GET' | 'POST' | 'PUT', relativeUrl: string, type: 'api' | 'reports' = 'api', data: any = undefined) {
-        const url = type === 'api' ? BASE_API_URL : BASE_REPORTS_URL + relativeUrl;
+        const url = (type === 'api' ? BASE_API_URL : BASE_REPORTS_URL) + relativeUrl;
         const response = await fetch(url, {
             method,
             // @ts-ignore
