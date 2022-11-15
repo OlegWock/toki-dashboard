@@ -1,6 +1,3 @@
-# Toki Dashboard
-
-
 # Toki dashboard for Toggl
 
 Cute dashboard to track your velocity. It pulls data from Toggl and works fully in browser. Check it out here: [toki.sinja.io](https://toki.sinja.io/).

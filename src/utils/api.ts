@@ -99,8 +99,6 @@ export class TogglApi {
         const url = (type === 'api' ? BASE_API_URL : BASE_REPORTS_URL) + relativeUrl;
         const response = await fetch(url, {
             method,
-            // @ts-ignore
-            // withCredentials: true,
             credentials: 'include',
             body: data === undefined ? undefined : JSON.stringify(data),
             headers: new Headers({
