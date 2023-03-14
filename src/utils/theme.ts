@@ -57,6 +57,11 @@ export const themes = {
         '0, 46%, 51%',
         '0, 100%, 96%'
     ),
+    'pink': generateTheme(
+        '344, 59%, 80%',
+        '344, 59%, 53%',
+        '344, 59%, 41%'
+    )
 } as const;
 
 export type Theme = keyof typeof themes;
